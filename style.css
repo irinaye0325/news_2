@@ -1,0 +1,274 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --page-bg: #d9d9d9;
+  --panel-bg: #e1f6ff;
+  --header-bg: #695563;
+  --text: #171717;
+  --accent: #27283f;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--page-bg);
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.5;
+  /* Removemos o padding aqui para a tela ficar cheia */
+  padding: 0; 
+}
+
+.site {
+  /* Mudamos de 900px para 100% para ocupar a tela toda */
+  width: 100%; 
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  background: var(--panel-bg);
+  box-shadow: none; /* Removemos a sombra de "caixa flutuante" */
+}
+
+header {
+  min-height: 60px; /* Aumentei um pouco para telas de PC */
+  padding: 12px 40px; /* Mais espaçamento nas laterais */
+  background: var(--header-bg);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.brand {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  white-space: nowrap;
+}
+
+.brand span {
+  margin-right: 8px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  text-decoration: underline;
+}
+
+main {
+  /* Flex 1 faz o conteúdo empurrar o footer para baixo */
+  flex: 1; 
+  /* Centraliza o conteúdo em uma largura confortável de leitura */
+  max-width: 1200px; 
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: 400;
+  text-align: center;
+  margin: 30px 0 18px;
+}
+
+h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px; /* Mais espaço entre os cards na tela grande */
+  align-items: start;
+}
+
+.team-card {
+  display: block;
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.team-card img {
+  display: block;
+  width: 100%;
+  max-width: 350px; /* Aumentei o tamanho máximo da imagem */
+  height: auto;
+  aspect-ratio: 2.6 / 1;
+  object-fit: cover;
+  margin: 8px auto;
+  border-radius: 8px; /* Deixa as bordas arredondadas */
+}
+
+.team-card:hover img {
+  filter: brightness(1.08);
+}
+
+.team-card p {
+  margin: 0;
+}
+
+.driver-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px 60px; /* Mais espaço entre os pilotos */
+  justify-items: center;
+}
+
+.driver-card {
+  width: min(100%, 320px); /* Cards de piloto um pouco maiores */
+  text-align: center;
+}
+
+.driver-card img {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  aspect-ratio: 1.15 / 1;
+  object-fit: cover;
+  margin: 0 auto 12px;
+  border-radius: 8px; /* Bordas arredondadas na foto do piloto */
+}
+
+.driver-card p {
+  margin: 0;
+}
+
+.contact-form {
+  width: min(100%, 600px);
+  margin: 0 auto;
+  padding: 30px;
+  background: #f4f5f6;
+  border: 1px solid #c6cbd0;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px #00000018;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  font-size: 16px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d8dce0;
+  border-radius: 5px;
+  background: white;
+  color: var(--text);
+  font: inherit;
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 14px;
+  border: 0;
+  border-radius: 5px;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  font: inherit;
+  font-size: 16px;
+}
+
+.submit-button:hover {
+  background: #3c3e5d;
+}
+
+footer {
+  background: #f4f5f6;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+footer a {
+  color: inherit;
+  margin: 0 8px;
+}
+
+/* Ajustes para telas menores (Celular) */
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    padding: 15px;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  nav ul {
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .team-card img {
+    max-width: 100%;
+  }
+
+  .driver-grid {
+    gap: 30px 20px;
+  }
+  
+  .driver-card img {
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .driver-grid {
+    grid-template-columns: 1fr;
+  }
+}
